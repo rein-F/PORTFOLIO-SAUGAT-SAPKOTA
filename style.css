@@ -162,6 +162,40 @@ header .content p{
     color: #ccc;
 }
 
+.hero-intro{
+    max-width: 780px;
+    margin: 0 auto 1.2rem auto;
+    color: #d4d4d8;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.hero-skills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .65rem;
+    flex-wrap: wrap;
+}
+
+.hero-skill{
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.28), rgba(30, 64, 175, 0.18));
+    border: 1px solid rgba(147, 197, 253, 0.35);
+    color: #dbeafe;
+    padding: .45rem .8rem;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    transition: transform .25s ease, border-color .25s ease, background-color .25s ease;
+}
+
+.hero-skill:hover{
+    transform: translateY(-2px);
+    border-color: rgba(191, 219, 254, 0.65);
+    background: linear-gradient(135deg, rgba(29, 78, 216, 0.4), rgba(30, 64, 175, 0.25));
+}
+
 section .header{
     margin-bottom: 1rem;
     color: #fff;
