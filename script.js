@@ -1,16 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const goTopBtn = document.getElementById('goTopBtn');
+
+    const updateGoTopVisibility = () => {
+        if (!goTopBtn) return;
+        const showButton = window.scrollY > 300;
+        goTopBtn.classList.toggle('show', showButton);
+    };
+
+    if (goTopBtn) {
+        goTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    window.addEventListener('scroll', updateGoTopVisibility, { passive: true });
+    updateGoTopVisibility();
+
+    const nav = document.querySelector('nav');
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    const closeNavMenu = () => {
+        if (!nav || !navToggle) return;
+        nav.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open menu');
+    };
+
+    const toggleNavMenu = () => {
+        if (!nav || !navToggle) return;
+        const isOpen = nav.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    };
+
+    if (navToggle) {
+        navToggle.addEventListener('click', toggleNavMenu);
+    }
+
+    document.addEventListener('click', (e) => {
+        if (!nav || !navMenu || !navToggle || window.innerWidth > 820) return;
+        if (!nav.contains(e.target)) closeNavMenu();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 820) closeNavMenu();
+    });
+
     const smoothScrollTo = (selector) => {
         const el = document.querySelector(selector);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
 
-    const link1 = document.getElementById('link1');
-    const link2 = document.getElementById('link2');
-    const link3 = document.getElementById('link3');
+    const navAnchors = document.querySelectorAll('.nav-links a, .nav-cta a[href^="#"]');
+    navAnchors.forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+            const target = anchor.getAttribute('href');
 
-    if (link1) link1.addEventListener('click', (e) => { e.preventDefault(); smoothScrollTo('#projects'); });
-    if (link2) link2.addEventListener('click', (e) => { e.preventDefault(); smoothScrollTo('#resume'); });
-    if (link3) link3.addEventListener('click', (e) => { e.preventDefault(); smoothScrollTo('#about'); });
+            if (!target) return;
+
+            if (target === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                closeNavMenu();
+                return;
+            }
+
+            if (target.startsWith('#') && document.querySelector(target)) {
+                e.preventDefault();
+                smoothScrollTo(target);
+                closeNavMenu();
+            }
+        });
+    });
 
     const sourceCodeButtons = document.querySelectorAll('.project-btn-secondary');
     const sourceCodePopup = document.getElementById('sourceCodePopup');

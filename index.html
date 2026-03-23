@@ -14,15 +14,22 @@
     <img class="corner-flag" src="download copy.gif" alt="Nepal Flag">
 
     <nav>
-        <ul class="nav-links">
-            <li class="link"><a href="#">Home</a></li>
-            <li id="link1" class="link"><a href="#projects">Project</a></li>
-            <li id="link2" class="link"><a href="#resume">Resume</a></li>
-            <li class="link"><a href="#experience">Experience</a></li>
-            <li id="link3" class="link"><a href="#about">About</a></li>
-        </ul>
-        <div class="nav-cta">
-            <a href="mailto:saugatsapkota28@gmail.com?subject=Portfolio%20Contact" class="btn">Contact me</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <ul class="nav-links">
+                <li class="link"><a href="#">Home</a></li>
+                <li id="link1" class="link"><a href="#projects">Project</a></li>
+                <li id="link2" class="link"><a href="#resume">Resume</a></li>
+                <li class="link"><a href="#experience">Experience</a></li>
+                
+            </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn">Contact me</a>
+            </div>
         </div>
     </nav>
 
@@ -151,27 +158,33 @@
             </div>
         </div>
     </section>
+
+    <section id="contact" class="container contact-section">
+        <h2 class="section-title reveal">Connect With Me</h2>
+        <p class="section-subtitle reveal">Reach out through social profiles or email.</p>
+        <div class="contact-grid">
+            <a class="social-card reveal" href="mailto:saugatsapkota28@gmail.com?subject=Portfolio%20Contact">
+                <i class="ri-mail-send-line"></i>
+                <h3>Email</h3>
+                <p>saugatsapkota28@gmail.com</p>
+            </a>
+            <a class="social-card reveal" href="https://github.com/rein-f/" target="_blank" rel="noopener">
+                <i class="ri-github-line"></i>
+                <h3>GitHub</h3>
+                <p>See my code projects</p>
+            </a>
+        </div>
+    </section>
     
 
     
     
     <footer class="container">
-        <span class="blur"></span>
-        <span class="blur"></span>
-        <div class="column">
-            <p>SAUGAT SAPKOTA</p>
-            <div class="socials">
-                <a href="https://www.facebook.com/profile.php?id=100080822575671"><i class="ri-facebook-line"></i></a>
-                <a href="#"><i class="ri-youtube-line"></i></a>
-                <a href="#"><i class="ri-instagram-line"></i></a>
-                <a href="#"><i class="ri-twitter-line"></i></a>
-            </div>
-        </div>
         
     </footer>
 
     <div class="copyright">
-        Copyright © 2024 SAUGAT SAPKOTA. All Rights Reserved.
+        Copyright © 2026 SAUGAT SAPKOTA. All Rights Reserved.
     </div>
 
     <div id="sourceCodePopup" class="popup-overlay" aria-hidden="true">
@@ -182,6 +195,10 @@
             <button id="closePopup" class="popup-close-btn" type="button">Close</button>
         </div>
     </div>
+
+    <button id="goTopBtn" class="go-top-btn" type="button" aria-label="Go to top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
     
     <script src="script.js"></script>
 </body>
