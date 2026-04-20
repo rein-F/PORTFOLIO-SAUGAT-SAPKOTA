@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const sourceCodeButtons = document.querySelectorAll('.project-btn-secondary');
+    const sourceCodeButtons = document.querySelectorAll('.project-btn-secondary[href="#"]');
     const sourceCodePopup = document.getElementById('sourceCodePopup');
     const closePopupButton = document.getElementById('closePopup');
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20260408-1">
     <link rel="icon" type="image/svg+xml" href="cmd-icon.svg">
     <title>Personal Portfolio</title>
 </head>
@@ -23,11 +23,13 @@
             <ul class="nav-links">
                 <li class="link"><a href="#">Home</a></li>
                 <li id="link1" class="link"><a href="#projects">Project</a></li>
+                <li class="link"><a href="#skills">Skills</a></li>
                 <li id="link2" class="link"><a href="#resume">Resume</a></li>
                 <li class="link"><a href="#experience">Experience</a></li>
                 
             </ul>
             <div class="nav-cta">
+                <a href="https://github.com/saugat-sapkota-2" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="#contact" class="btn">Contact me</a>
             </div>
         </div>
@@ -41,6 +43,7 @@
             <h1>Hi, I'm <span>SAUGAT SAPKOTA</span></h1>
             <p class="hero-intro">A web developer passionate about crafting user-friendly, accessible, and thoughtfully designed web experiences.</p>
             <div class="hero-skills" aria-label="Core skills">
+                <span class="hero-skill">Python</span>
                 <span class="hero-skill">HTML</span>
                 <span class="hero-skill">CSS</span>
                 <span class="hero-skill">JavaScript</span>
@@ -59,6 +62,10 @@
                 <div class="project-image">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Project dashboard preview">
                 </div>
+                <button class="project-lock" type="button" aria-label="Source code is locked. If needed, contact admin.">
+                    <i class="ri-lock-2-fill" aria-hidden="true"></i>
+                    <span class="project-lock-tooltip">Source code is locked. If needed, contact admin.</span>
+                </button>
                 <div class="project-content">
                     <h3 class="project-title">Shop Management System</h3>
                     <p class="project-desc">A comprehensive solution for managing inventory, sales, and customer data.</p>
@@ -76,6 +83,10 @@
                 <div class="project-image">
                     <img src="https://i.ibb.co/RGcqSnx2/unnamed.jpg" alt="Digital wallet app preview">
                 </div>
+                <button class="project-lock" type="button" aria-label="Source code is locked. If needed, contact admin.">
+                    <i class="ri-lock-2-fill" aria-hidden="true"></i>
+                    <span class="project-lock-tooltip">Source code is locked. If needed, contact admin.</span>
+                </button>
                 <div class="project-content">
                     <h3 class="project-title">Digital Wallet</h3>
                     <p class="project-desc">A secure wallet interface for quick balance checks, transfers, and transaction tracking.</p>
@@ -91,17 +102,34 @@
 
             <article class="project-card reveal">
                 <div class="project-image">
-                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80" alt="Project code preview">
+                    <img src="https://raw.githubusercontent.com/saugat-sapkota-2/browser-network-inspector/main/previews/Dashboard.png" alt="Network Monitor Lite dashboard preview">
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Billing System Interface</h3>
-                    <p class="project-desc">A practical billing front-end with item entries, totals, and a clear print flow.</p>
+                    <h3 class="project-title">Network Monitor Lite</h3>
+                    <p class="project-desc">A lightweight browser extension to capture and inspect live network requests for debugging and QA workflows.</p>
                     <div class="project-tags">
-                        <span>Web App</span><span>Productivity</span>
+                        <span>JavaScript</span><span>CSS</span><span>HTML</span><span>Chrome Extension</span>
                     </div>
                     <div class="project-actions">
-                        <a href="#" class="project-btn">Watch Demo</a>
-                        <a href="#" class="project-btn project-btn-secondary">Source Code</a>
+                        <a href="https://github.com/saugat-sapkota-2/browser-network-inspector#preview" class="project-btn" target="_blank" rel="noopener noreferrer">Project Preview</a>
+                        <a href="https://github.com/saugat-sapkota-2/browser-network-inspector" class="project-btn project-btn-secondary" target="_blank" rel="noopener noreferrer">Source Code</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card reveal">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" alt="DNS monitoring project preview">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Mini Wireshark DNS Monitor</h3>
+                    <p class="project-desc">A mini Wireshark-style DNS monitor focused on capturing and inspecting DNS activity for troubleshooting and learning.</p>
+                    <div class="project-tags">
+                        <span>JavaScript</span><span>DNS</span><span>Network Monitoring</span><span>Web Tool</span>
+                    </div>
+                    <div class="project-actions">
+                        <a href="https://github.com/saugat-sapkota-2/Mini-wireshark-DNS-monitor." class="project-btn" target="_blank" rel="noopener noreferrer">Project Page</a>
+                        <a href="https://github.com/saugat-sapkota-2/Mini-wireshark-DNS-monitor." class="project-btn project-btn-secondary" target="_blank" rel="noopener noreferrer">Source Code</a>
                     </div>
                 </div>
             </article>
@@ -116,10 +144,6 @@
 
         <div class="experience-layout">
             <div class="experience-list reveal">
-                <article class="experience-item" tabindex="0" role="button" data-title="ABC Tech" data-role="Intern · 2025 - Ongoing" data-summary="Worked with the frontend team to build reusable UI blocks, improve layout consistency, and support feature testing before release.">
-                    <h4>ABC Tech</h4>
-                    <p>Intern · 2025 - Ongoing</p>
-                </article>
                 <article class="experience-item" tabindex="0" role="button" data-title="Hackathon HSMSS" data-role="First Runner-up · 2024" data-summary="Built and presented a project solution under time pressure, focusing on teamwork, rapid prototyping, and practical problem solving.">
                     <h4>Hackathon HSMSS</h4>
                     <p>First Runner-up · 2024</p>
@@ -140,21 +164,67 @@
 
     <section id="resume" class="container">
         <h2 class="section-title reveal">Resume</h2>
-        <p class="section-subtitle reveal">Skills and education at a glance.</p>
+        <p class="section-subtitle reveal">Skills at a glance.</p>
         <div class="resume-actions reveal">
             <a href="images/your-resume.pdf" class="btn" download>Download Resume</a>
             <a href="images/your-resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Open Resume</a>
         </div>
         <div class="resume-grid">
-            <div class="resume-card reveal">
-                <h3>Skills</h3>
-                <ul class="skills">
-                    <li>HTML</li><li>CSS</li><li>JavaScript</li><li>UI/UX</li>
-                </ul>
-            </div>
-            <div class="resume-card reveal">
-                <h3>Education</h3>
-                <p>Self-directed learning focused on modern web development and design.</p>
+            <div id="skills" class="resume-card reveal skills-panel">
+                <div class="skills-head">
+                    <h3>Skills</h3>
+                    <p>Modern web stack and tools I use to design and ship projects.</p>
+                </div>
+
+                <div class="skills-groups">
+                    <div class="skills-group">
+                        <h4>Core Development</h4>
+                        <ul class="skills">
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+
+                    <div class="skills-group">
+                        <h4>Design &amp; Workflow</h4>
+                        <ul class="skills">
+                            <li>UI/UX</li>
+                            <li>Figma</li>
+                            <li>Git &amp; GitHub</li>
+                            <li>Debugging</li>
+                            <li>Problem Solving</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skill-bars" aria-label="Skill proficiency">
+                    <div class="skill-meter">
+                        <div class="skill-meter-label">
+                            <span>Frontend Development</span>
+                            <strong>90%</strong>
+                        </div>
+                        <div class="skill-meter-track"><span style="--level: 90%;"></span></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-meter-label">
+                            <span>UI/UX Design</span>
+                            <strong>85%</strong>
+                        </div>
+                        <div class="skill-meter-track"><span style="--level: 85%;"></span></div>
+                    </div>
+
+                    <div class="skill-meter">
+                        <div class="skill-meter-label">
+                            <span>Python &amp; Automation</span>
+                            <strong>80%</strong>
+                        </div>
+                        <div class="skill-meter-track"><span style="--level: 80%;"></span></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -217,7 +287,7 @@
         <i class="ri-arrow-up-line"></i>
     </button>
     
-    <script src="script.js"></script>
+    <script src="script.js?v=20260408-1"></script>
 </body>
 
 </html>
