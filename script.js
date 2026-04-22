@@ -74,6 +74,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const heroIntro = document.querySelector('.hero-intro');
+
+    if (heroIntro) {
+        const fullText = (heroIntro.textContent || '').trim();
+
+        if (fullText) {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const parsedSpeed = Number.parseInt(heroIntro.dataset.typingSpeed || '', 10);
+            const typingSpeed = Number.isFinite(parsedSpeed) && parsedSpeed > 0 ? parsedSpeed : 34;
+
+            heroIntro.setAttribute('aria-label', fullText);
+
+            if (!prefersReducedMotion) {
+                heroIntro.textContent = '';
+                heroIntro.classList.add('is-typing');
+
+                let charIndex = 0;
+
+                const typeNextCharacter = () => {
+                    charIndex += 1;
+                    heroIntro.textContent = fullText.slice(0, charIndex);
+
+                    if (charIndex < fullText.length) {
+                        window.setTimeout(typeNextCharacter, typingSpeed);
+                    } else {
+                        heroIntro.classList.remove('is-typing');
+                    }
+                };
+
+                window.setTimeout(typeNextCharacter, 250);
+            }
+        }
+    }
+
     const sourceCodeButtons = document.querySelectorAll('.project-btn-secondary[href="#"]');
     const sourceCodePopup = document.getElementById('sourceCodePopup');
     const closePopupButton = document.getElementById('closePopup');
