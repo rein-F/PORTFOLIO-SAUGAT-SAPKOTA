@@ -157,6 +157,10 @@ nav{
     padding: 4.5rem 2rem;
 }
 
+header.container{
+    padding-bottom: 0.9rem;
+}
+
 .blur{
     position: absolute;
     box-shadow: 0 0 1000px 50px #1d4ed8;
@@ -237,6 +241,65 @@ header .content p{
     background: linear-gradient(135deg, rgba(29, 78, 216, 0.4), rgba(30, 64, 175, 0.25));
 }
 
+.hero-socials{
+    margin-top: 1.55rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+}
+
+.hero-social-link{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(148,163,184,0.35);
+    color: #e5e7eb;
+    font-size: 1.65rem;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background-color .25s ease;
+}
+
+.hero-social-link:hover{
+    transform: translateY(-3px);
+}
+
+.hero-social-link.facebook:hover{
+    border-color: rgba(96, 165, 250, 0.75);
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+    box-shadow: 0 10px 22px -14px rgba(37, 99, 235, 0.95);
+}
+
+.hero-social-link.instagram:hover{
+    border-color: rgba(251, 146, 60, 0.78);
+    background: linear-gradient(140deg, rgba(244, 114, 182, 0.22), rgba(251, 146, 60, 0.22));
+    color: #fb923c;
+    box-shadow: 0 10px 22px -14px rgba(251, 146, 60, 0.95);
+}
+
+.hero-social-link.github:hover{
+    border-color: rgba(229, 231, 235, 0.75);
+    background: rgba(255,255,255,0.12);
+    color: #ffffff;
+    box-shadow: 0 10px 22px -14px rgba(229, 231, 235, 0.65);
+}
+
+.hero-social-link.discord:hover{
+    border-color: rgba(129, 140, 248, 0.75);
+    background: rgba(99, 102, 241, 0.2);
+    color: #a5b4fc;
+    box-shadow: 0 10px 22px -14px rgba(99, 102, 241, 0.95);
+}
+
+.hero-social-link:focus-visible{
+    outline: 2px solid #bfdbfe;
+    outline-offset: 3px;
+}
+
 section .header{
     margin-bottom: 1rem;
     color: #fff;
@@ -264,6 +327,7 @@ section .header{
 /* Projects */
 #projects.container{
     max-width: 1440px;
+    padding-top: 1rem;
 }
 
 .projects-grid{
@@ -278,10 +342,127 @@ section .header{
     border-radius: 16px;
     overflow: hidden;
     transform: translateY(0);
-    transition: transform .35s ease, border-color .35s ease, background-color .35s ease, box-shadow .35s ease;
+    transition: transform .4s ease, border-color .35s ease, background-color .35s ease, box-shadow .35s ease;
     position: relative;
     will-change: transform;
     perspective: 1000px;
+}
+
+.project-status-chip{
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: .42rem;
+    padding: .34rem .62rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .015em;
+    pointer-events: none;
+}
+
+.project-status-dot{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: projectStatusPulse 1.7s ease-in-out infinite;
+}
+
+.project-status-popover{
+    position: absolute;
+    top: 54px;
+    left: 12px;
+    width: min(220px, calc(100% - 24px));
+    z-index: 4;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(17,24,39,0.94);
+    box-shadow: 0 20px 32px -20px rgba(0,0,0,0.85);
+    padding: .58rem .72rem .65rem;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: top left;
+    transform: translateY(8px) rotateX(-88deg) scale(0.9);
+    transition: opacity .27s ease, transform .42s cubic-bezier(.2,.7,.2,1), visibility .27s ease;
+    pointer-events: none;
+}
+
+.project-status-popover::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.project-status-popover .project-status-label{
+    margin-bottom: .2rem;
+    font-size: .67rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+}
+
+.project-status-popover h4{
+    margin-bottom: .2rem;
+    font-size: .9rem;
+    color: #f8fafc;
+}
+
+.project-status-popover p{
+    color: #cbd5e1;
+    font-size: .75rem;
+    line-height: 1.35;
+}
+
+.project-card:hover .project-status-popover,
+.project-card:focus-within .project-status-popover{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) rotateX(0deg) scale(1);
+}
+
+.project-card:hover .project-status-popover::before,
+.project-card:focus-within .project-status-popover::before{
+    opacity: 1;
+}
+
+.project-card.is-complete .project-status-chip{
+    color: #86efac;
+    border-color: rgba(134, 239, 172, 0.55);
+    background: rgba(22, 163, 74, 0.2);
+}
+
+.project-card.is-complete .project-status-dot{
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.28);
+}
+
+.project-card.is-complete .project-status-popover{
+    border-color: rgba(74, 222, 128, 0.5);
+}
+
+.project-card.is-progress .project-status-chip{
+    color: #fca5a5;
+    border-color: rgba(252, 165, 165, 0.55);
+    background: rgba(239, 68, 68, 0.18);
+}
+
+.project-card.is-progress .project-status-dot{
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25);
+}
+
+.project-card.is-progress .project-status-popover{
+    border-color: rgba(251, 113, 133, 0.52);
 }
 
 .project-lock{
@@ -341,10 +522,18 @@ section .header{
 }
 
 .project-card:hover{
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-8px) scale(1.04) rotateX(1.2deg);
     border-color: rgba(255,255,255,0.25);
     background-color: #1f1f22;
     box-shadow: 0 12px 32px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.project-card:nth-child(odd):hover{
+    transform: translateY(-8px) scale(1.04) rotateY(-3deg);
+}
+
+.project-card:nth-child(even):hover{
+    transform: translateY(-8px) scale(1.04) rotateY(3deg);
 }
 
 .project-image img{
@@ -358,6 +547,17 @@ section .header{
 .project-card:hover .project-image img{
     transform: scale(1.08);
     filter: brightness(1.15) saturate(1.1);
+}
+
+@keyframes projectStatusPulse{
+    0%, 100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(1.25);
+        opacity: .65;
+    }
 }
 
 .project-content{
@@ -1155,7 +1355,9 @@ footer .column > a:hover{
     .contact-layout{
         grid-template-columns: 1fr;
     }
-    .project-card:hover{transform: translateY(-6px) scale(1.04);}
+    .project-card:hover{transform: translateY(-6px) scale(1.03);}
+    .project-card:nth-child(odd):hover,
+    .project-card:nth-child(even):hover{transform: translateY(-6px) scale(1.03);}
     .project-card:hover .project-image img{transform: scale(1.12);}
 }
 
@@ -1315,11 +1517,40 @@ footer .column > a:hover{
     .skill-meter-label{
         font-size: .78rem;
     }
-    .project-card:hover{transform: translateY(-4px) scale(1.03);}    
+    .hero-socials{
+        margin-top: 1.2rem;
+        gap: .85rem;
+    }
+    .hero-social-link{
+        width: 40px;
+        height: 40px;
+        font-size: 1.45rem;
+    }
+    .project-status-chip{
+        top: 10px;
+        left: 10px;
+        font-size: .68rem;
+    }
+    .project-status-popover{
+        top: 48px;
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+    .project-card:hover{transform: translateY(-4px) scale(1.02);}    
+    .project-card:nth-child(odd):hover,
+    .project-card:nth-child(even):hover{transform: translateY(-4px) scale(1.02);}    
     .project-card:hover .project-image img{transform: scale(1.07);}    
 
     .resume-embed iframe{
         height: 320px;
+    }
+}
+
+@media (hover: none){
+    .project-status-popover{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) rotateX(0) scale(1);
     }
 }
 
