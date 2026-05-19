@@ -70,6 +70,35 @@ html{
     gap: 1.25rem;
 }
 
+.kathmandu-time{
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    background: rgba(24, 24, 27, 0.7);
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    z-index: 200;
+    box-shadow: 0 8px 20px -12px rgba(0,0,0,0.8);
+    backdrop-filter: blur(6px);
+    font-family: 'Courier New', monospace;
+}
+
+.kathmandu-time .time-label{
+    font-size: 0.75rem;
+    color: rgba(147, 197, 253, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.kathmandu-time .time-display{
+    font-size: 1rem;
+    font-weight: 600;
+    color: #93c5fd;
+    letter-spacing: 1px;
+}
+
 .corner-flag{
     position: fixed;
     top: 12px;
@@ -1734,6 +1763,15 @@ footer .column > a:hover{
     background: #1e40af;
 }
 
+@media (max-width: 1280px){
+    .kathmandu-time{
+        position: absolute;
+        top: calc(50% + 2px);
+        left: 1.25rem;
+        transform: translateY(-50%);
+    }
+}
+
 @media (max-width: 900px){
     nav{
         margin-top: 10px;
@@ -1884,6 +1922,10 @@ footer .column > a:hover{
 }
 
 @media (max-width: 600px){
+    .kathmandu-time{
+        display: none;
+    }
+
     .corner-flag{
         display: none;
     }

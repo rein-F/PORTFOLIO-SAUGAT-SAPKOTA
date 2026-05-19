@@ -1,3 +1,29 @@
+// Update Kathmandu time (UTC+5:45)
+const updateKathmandTime = () => {
+    const kathmandTime = document.getElementById('kathmandTime');
+    if (!kathmandTime) return;
+
+    const now = new Date();
+    const utcTime = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+    const kathmandTimeObj = new Date(utcTime.getTime() + 5.75 * 60 * 60000);
+
+    const rawHours = kathmandTimeObj.getHours();
+    const period = rawHours >= 12 ? 'PM' : 'AM';
+    const hours12 = rawHours % 12 || 12;
+    const hours = String(hours12).padStart(2, '0');
+    const minutes = String(kathmandTimeObj.getMinutes()).padStart(2, '0');
+    const seconds = String(kathmandTimeObj.getSeconds()).padStart(2, '0');
+
+    const timeDisplay = kathmandTime.querySelector('.time-display');
+    if (timeDisplay) {
+        timeDisplay.textContent = `${hours}:${minutes}:${seconds} ${period}`;
+    }
+};
+
+// Update time immediately and then every second
+updateKathmandTime();
+setInterval(updateKathmandTime, 1000);
+
 document.addEventListener('DOMContentLoaded', () => {
     const goTopBtn = document.getElementById('goTopBtn');
 
@@ -199,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     contactStatus.classList.add('success');
-                    contactStatus.textContent = 'Message sent successfully. Thank you!';
+                    contactStatus.textContent = 'Your message has been sent successfully. Thank you for reaching out!';
                     contactForm.reset();
                 } else {
                     contactStatus.classList.add('error');
